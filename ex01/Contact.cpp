@@ -6,7 +6,7 @@
 /*   By: wlanette <wlanette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 16:57:39 by wlanette          #+#    #+#             */
-/*   Updated: 2022/10/28 17:05:51 by wlanette         ###   ########.fr       */
+/*   Updated: 2022/10/28 21:44:32 by wlanette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ std::string Contact::ft_get_lastName(void)
 
 std::string Contact::ft_get_nickName(void)
 {
-    return (this->_name);
+    return (this->_nickName);
 }
 
 std::string Contact::ft_get_phone(void)

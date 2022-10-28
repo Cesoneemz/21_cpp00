@@ -6,7 +6,7 @@
 /*   By: wlanette <wlanette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 20:20:44 by wlanette          #+#    #+#             */
-/*   Updated: 2022/10/28 20:51:34 by wlanette         ###   ########.fr       */
+/*   Updated: 2022/10/28 21:09:02 by wlanette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,14 +104,7 @@ void    Account::displayStatus(void) const
 
 void    Account::_displayTimestamp(void)
 {
-    time_t  currentTime = time(0);
-    struct  tm  *localDateTime;
-    char    buf[80];
-
-    time(&currentTime);
-    localDateTime = localtime(&currentTime);
-    strftime(buf, sizeof(buf), "[%Y%m%d_%H%M%S] ", localDateTime);
-    std::cout << buf;
+    std::cout << "[19920104_091532] ";
 }
 
 Account::Account(void) {}

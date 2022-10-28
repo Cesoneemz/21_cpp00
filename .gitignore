@@ -4,3 +4,6 @@
 *.o
 megaphone
 phonebook
+account
+
+*.txt

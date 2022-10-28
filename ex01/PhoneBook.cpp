@@ -6,7 +6,7 @@
 /*   By: wlanette <wlanette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 17:13:50 by wlanette          #+#    #+#             */
-/*   Updated: 2022/10/28 20:16:55 by wlanette         ###   ########.fr       */
+/*   Updated: 2022/10/28 21:45:17 by wlanette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,37 +32,35 @@ void    PhoneBook::ft_add(void)
     std::string phone;
     std::string darkestSecret;
 
-    if (this->_count >= 7)
+    if (this->_index >= 8)
         std::cout << "Replaced a oldest contact because phonebook is full" << std::endl;
 
     std::cout << "Enter first name: ";
     std::cin >> name;
-    this->_contacts[this->_count].ft_set_name(name);
+    this->_contacts[this->_count % 8].ft_set_name(name);
 
     std::cout << "Enter last name: ";
     std::cin >> lastName;
-    this->_contacts[this->_count].ft_set_lastName(lastName);
+    this->_contacts[this->_count % 8].ft_set_lastName(lastName);
 
     std::cout << "Enter nickname: ";
     std::cin >> nickName;
-    this->_contacts[this->_count].ft_set_nickName(nickName);
+    this->_contacts[this->_count % 8].ft_set_nickName(nickName);
 
     std::cout << "Enter phone: ";
     std::cin >> phone;
-    this->_contacts[this->_count].ft_set_phone(phone);
+    this->_contacts[this->_count % 8].ft_set_phone(phone);
 
 
     std::cout << "Enter darkest secret: ";
     std::cin >> darkestSecret;
-    this->_contacts[this->_count].ft_set_darkestSecret(darkestSecret);
+    this->_contacts[this->_count % 8].ft_set_darkestSecret(darkestSecret);
 
     std::cout << "Contact has been succesfully created" << std::endl;
 
-    if (this->_count != 7)
-        this->_count++;
-    this->_index++;
-    if (this->_index >= 7)
-        this->_index = 0;
+    this->_count++;
+    if (this->_count <= 8)
+        this->_index = this->_count;
 }
 
 void    PhoneBook::_ft_display_header(void)
@@ -132,9 +130,14 @@ void    PhoneBook::ft_search(void)
     std::cout << "Enter a search index: ";
     std::cin >> index;
     std::cin.clear();
-    if (index > this->_count || index >= 8)
+    if (this->_count == 0)
     {
         std::cout << "Phonebook is empty. Add a contact first" << std::endl;
+        return ;
+    }
+    else if (index > this->_index || index > 7)
+    {
+        std::cout << "Invalid contact index number" << std::endl;
         return ;
     }
     this->_ft_print_contact(index);
