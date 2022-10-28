@@ -6,7 +6,7 @@
 /*   By: wlanette <wlanette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 17:13:50 by wlanette          #+#    #+#             */
-/*   Updated: 2022/10/28 21:45:17 by wlanette         ###   ########.fr       */
+/*   Updated: 2022/10/28 21:51:43 by wlanette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,7 +135,7 @@ void    PhoneBook::ft_search(void)
         std::cout << "Phonebook is empty. Add a contact first" << std::endl;
         return ;
     }
-    else if (index > this->_index || index > 7)
+    else if (index >= this->_index || index > 8)
     {
         std::cout << "Invalid contact index number" << std::endl;
         return ;
